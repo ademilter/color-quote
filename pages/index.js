@@ -45,7 +45,7 @@ function IndexPage({ quote: initialQuote }) {
     const score = _color.contrast(_bg)
     console.log(color, bg, score)
 
-    if (score < 3) {
+    if (score < 2) {
       changeColor()
     } else {
       setColor(color)
