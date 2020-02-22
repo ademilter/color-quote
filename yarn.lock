@@ -5174,6 +5174,11 @@ signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
 
+simple-react-clipboard@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/simple-react-clipboard/-/simple-react-clipboard-1.0.5.tgz#a85a3889861faa9711d4ca26a1a91a454d01f3fb"
+  integrity sha512-bJ5eSIBlIZ0lacUlog9H/xzCxxV37ze/hu3P1GwNVIcGVx8lrHQ1mUuUE4arpsGINjYPePrx/WApD+/Prxxtrw==
+
 snapdragon-node@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/snapdragon-node/-/snapdragon-node-2.1.1.tgz#6c175f86ff14bdb0724563e8f3c1b021a286853b"
