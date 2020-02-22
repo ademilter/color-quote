@@ -7,9 +7,8 @@ import Layout from '../components/layout'
 import Quote from '../components/quote'
 
 QuotePage.getInitialProps = async ({ query }) => {
-  const response = await fetch(quoteUrl(query.id))
-  const data = await response.json()
-  return { ...query, quote: data }
+  const quote = await fetch(quoteUrl(query.id)).then(response => response.json())
+  return { ...query, quote }
 }
 
 function QuotePage({ color, bgColor, quote }) {
