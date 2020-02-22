@@ -1,5 +1,6 @@
 import React from 'react'
 import fetch from 'isomorphic-unfetch'
+import colorCheck from 'color'
 
 import { convertColor, randomNumber, quoteUrl } from '../utils/helper'
 import allColor from '../colors'
@@ -21,12 +22,8 @@ function IndexPage({ quote: initialQuote }) {
   const [quote, setQuote] = React.useState(initialQuote)
   const [waitQuote, setWaitQuote] = React.useState(false)
 
-  const [color, setColor] = React.useState(
-    convertColor(allColor.colors[random()])
-  )
-  const [bgColor, setBgColor] = React.useState(
-    convertColor(allColor.colors[random()])
-  )
+  const [color, setColor] = React.useState(null)
+  const [bgColor, setBgColor] = React.useState(null)
 
   React.useEffect(() => {
     if (!quote.id && !color && !bgColor) return
@@ -35,9 +32,25 @@ function IndexPage({ quote: initialQuote }) {
     )
   }, [quote, color, bgColor])
 
+  React.useEffect(() => {
+    changeColor()
+  }, [])
+
   const changeColor = () => {
-    setColor(convertColor(allColor.colors[random()]))
-    setBgColor(convertColor(allColor.colors[random()]))
+    const color = convertColor(allColor.colors[random()])
+    const bg = convertColor(allColor.colors[random()])
+
+    const _color = colorCheck(`rgba(${color})`)
+    const _bg = colorCheck(`rgba(${bg})`)
+    const score = _color.contrast(_bg)
+    console.log(color, bg, score)
+
+    if (score < 3) {
+      changeColor()
+    } else {
+      setColor(color)
+      setBgColor(bg)
+    }
   }
 
   const getQuote = async () => {
