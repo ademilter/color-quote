@@ -11,6 +11,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <title>Color Quote</title>
           <link
             href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:700&display=swap&subset=latin-ext"
             rel="stylesheet"
