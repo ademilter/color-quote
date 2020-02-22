@@ -1,10 +1,10 @@
 import React from 'react'
 import fetch from 'isomorphic-unfetch'
 
-import { quoteUrl } from '../utils/helper'
+import { quoteUrl } from '../../utils/helper'
 
-import Layout from '../components/layout'
-import Quote from '../components/quote'
+import Layout from '../../components/layout'
+import Quote from '../../components/quote'
 
 QuotePage.getInitialProps = async ({ query }) => {
   const response = await fetch(quoteUrl(query.id))

@@ -17,6 +17,7 @@ IndexPage.getInitialProps = async () => {
 }
 
 function IndexPage({ quote: initialQuote }) {
+  const [currentUrl, setCurrentUrl] = React.useState(null)
   const [quote, setQuote] = React.useState(initialQuote)
   const [waitQuote, setWaitQuote] = React.useState(false)
 
@@ -27,9 +28,12 @@ function IndexPage({ quote: initialQuote }) {
     convertColor(allColor.colors[random()])
   )
 
-  const onShare = () => {
-    return `${location.origin}/${quote.id}/?color=${color}&bgColor=${bgColor}`
-  }
+  React.useEffect(() => {
+    if (!quote.id && !color && !bgColor) return
+    setCurrentUrl(
+      `${location.origin}/quote/${quote.id}/?color=${color}&bgColor=${bgColor}`
+    )
+  }, [quote, color, bgColor])
 
   const changeColor = () => {
     setColor(convertColor(allColor.colors[random()]))
@@ -61,6 +65,7 @@ function IndexPage({ quote: initialQuote }) {
         wait={waitQuote}
         onChangeColor={changeColor}
         onChangeQuote={changeQuote}
+        currentUrl={currentUrl}
       />
 
       <style global jsx>

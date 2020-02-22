@@ -16,7 +16,7 @@ export default function Layout({ children }) {
             font-size: 8vmin;
             line-height: 110%;
             padding: 8vmin;
-            height: 100vh;
+            min-height: 100vh;
             text-transform: uppercase;
           }
           a {
