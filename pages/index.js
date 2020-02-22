@@ -11,9 +11,8 @@ import Layout from '../components/layout'
 const random = randomNumber(allColor.colors.length)
 
 IndexPage.getInitialProps = async () => {
-  const response = await fetch(quoteUrl())
-  const data = await response.json()
-  return { quote: data[0] }
+  const [quote] = await fetch(quoteUrl()).then(response => response.json()
+  return { quote }
 }
 
 function IndexPage({ quote: initialQuote }) {
