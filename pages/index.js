@@ -71,14 +71,14 @@ export default function IndexPage() {
       <style jsx>{`
         .controllers {
           position: fixed;
-          right: 40px;
-          bottom: 40px;
+          right: 20px;
+          bottom: 20px;
           display: flex;
           align-items: center;
         }
         button {
           border: 0;
-          font-size: 30px;
+          font-size: 40px;
           height: 1em;
           width: 1em;
           border-radius: 5px;
