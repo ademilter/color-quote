@@ -3,7 +3,7 @@ import Clipboard from 'simple-react-clipboard'
 
 import IconSun from './icon-sun'
 import IconShuffle from './icon-shuffle'
-import IconShare from './icon-share'
+import IconCopy from './icon-copy'
 import Button from './button'
 import useInterval from '../hooks/interval'
 
@@ -48,8 +48,8 @@ export default function Controllers({
           }}
           render={({ copy }) => {
             return (
-              <Button aria-label="Share Quote" onClick={copy}>
-                <IconShare size={20} />
+              <Button aria-label="Copy Quote" onClick={copy}>
+                <IconCopy size={20} />
               </Button>
             )
           }}
