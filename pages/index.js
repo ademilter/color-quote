@@ -71,8 +71,8 @@ export default function IndexPage() {
       <style jsx>{`
         .controllers {
           position: fixed;
-          right: 20px;
-          bottom: 20px;
+          right: 40px;
+          bottom: 40px;
           display: flex;
           align-items: center;
         }
