@@ -14,6 +14,10 @@
   "dependencies": {
     "next": "^9.2.2",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "swr": "^0.1.17"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
   }
 }
