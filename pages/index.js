@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 
 import IconSun from '../components/icon-sun'
 import IconShuffle from '../components/icon-shuffle'
@@ -9,15 +10,35 @@ let random = () => Math.floor(Math.random() * (allColor.colors.length - 0))
 let quoteUrl = () =>
   `https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand&_=${Date.now()}`
 
-export default function IndexPage() {
+IndexPage.getInitialProps = ({ query }) => {
+  return { query }
+}
+
+function IndexPage({ query }) {
+  const router = useRouter()
+
+  const initialData = {
+    color: query.color || convertColor(allColor.colors[random()]),
+    bgColor: query.bgColor || convertColor(allColor.colors[random()])
+  }
+
   const [quote, setQuote] = React.useState(null)
   const [waitQuote, setWaitQuote] = React.useState(false)
-  const [color, setColor] = React.useState(allColor.colors[random()])
-  const [bgColor, setBgColor] = React.useState(allColor.colors[random()])
+  const [color, setColor] = React.useState(initialData.color)
+  const [bgColor, setBgColor] = React.useState(initialData.bgColor)
+
+  React.useEffect(() => {
+    router.push('/', {
+      query: {
+        color,
+        bgColor
+      }
+    })
+  }, [color, bgColor])
 
   const randomColor = () => {
-    setColor(allColor.colors[random()])
-    setBgColor(allColor.colors[random()])
+    setColor(convertColor(allColor.colors[random()]))
+    setBgColor(convertColor(allColor.colors[random()]))
   }
 
   const getQuote = async () => {
@@ -108,8 +129,8 @@ export default function IndexPage() {
           }
           body {
             font-family: 'IBM Plex Sans', sans-serif;
-            color: ${convertColor(color)};
-            background-color: ${convertColor(bgColor)};
+            color: rgba(${color});
+            background-color: rgba(${bgColor});
             font-size: 8vmin;
             line-height: 110%;
             padding: 8vmin;
@@ -119,8 +140,13 @@ export default function IndexPage() {
           a {
             color: inherit;
           }
+          cite {
+            font-style: normal;
+          }
         `}
       </style>
     </div>
   )
 }
+
+export default IndexPage

@@ -1,3 +1,8 @@
 export default ({ red, green, blue, alpha }) => {
-  return `rgba(${red * 255},${green * 255},${blue * 255},${alpha})`
+  return [
+    Math.round(red * 255),
+    Math.round(green * 255),
+    Math.round(blue * 255),
+    alpha
+  ].join(',')
 }
