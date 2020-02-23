@@ -9,10 +9,11 @@ function Button({ type = 'button', children, ...props }) {
 
       <style jsx>{`
         button {
+          cursor: pointer;
           border: 0;
-          font-size: 40px;
-          height: 1em;
-          width: 1em;
+          font: inherit;
+          min-height: 40px;
+          min-width: 40px;
           border-radius: 5px;
           display: flex;
           align-items: center;

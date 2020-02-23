@@ -1,7 +1,7 @@
 import React from 'react'
 import fetch from 'isomorphic-unfetch'
 
-import { quoteUrl } from '../../utils/helper'
+import { getColor, quoteUrl } from '../../utils/helper'
 
 import Layout from '../../components/layout'
 import Quote from '../../components/quote'
@@ -9,22 +9,18 @@ import Quote from '../../components/quote'
 QuotePage.getInitialProps = async ({ query }) => {
   const response = await fetch(quoteUrl(query.id))
   const data = await response.json()
-  return { ...query, quote: data }
+  const colors = getColor()
+  return {
+    quote: data,
+    textColor: colors.text,
+    bgColor: colors.bg
+  }
 }
 
-function QuotePage({ color, bgColor, quote }) {
+function QuotePage({ quote, textColor, bgColor }) {
   return (
-    <Layout>
+    <Layout textColor={textColor} bgColor={bgColor}>
       <Quote quote={quote} />
-
-      <style global jsx>
-        {`
-          body {
-            color: rgba(${color});
-            background-color: rgba(${bgColor});
-          }
-        `}
-      </style>
     </Layout>
   )
 }

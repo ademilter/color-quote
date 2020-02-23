@@ -28,8 +28,6 @@ class MyDocument extends Document {
             }}
           />
 
-          <title>Color Quote</title>
-
           <meta charSet="utf-8" />
           <meta
             name="viewport"
