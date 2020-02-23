@@ -79,6 +79,9 @@ export default function Controllers({
           padding: 30px;
           border-radius: 5px;
         }
+        .controllers :global(button + button) {
+          margin-left: 10px;
+        }
       `}</style>
     </div>
   )

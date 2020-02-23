@@ -1,5 +1,3 @@
-import allColor from '../colors'
-
 export function convertColor({ red, green, blue, alpha }) {
   return [
     Math.round(red * 255),
