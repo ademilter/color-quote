@@ -10,7 +10,7 @@ export function convertColor({ red, green, blue, alpha }) {
 }
 
 export function randomNumber(max, min = 0) {
-  return () => min + Math.floor(Math.random() * (max - min))
+  return () => Math.floor(Math.random() * max) + min
 }
 
 export function quoteUrl(id) {
