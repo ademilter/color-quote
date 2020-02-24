@@ -95,11 +95,12 @@ function Share({ quote, onClose }) {
           margin-top: 50px;
           display: flex;
           align-items: center;
+          flex-wrap: wrap;
+          justify-content: center;
         }
         .buttons > :global(*) {
           text-decoration: none;
-          margin-left: 10px;
-          margin-right: 10px;
+          margin: 10px;
           display: flex;
           align-items: center;
           background-color: var(--text-color);
