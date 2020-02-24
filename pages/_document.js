@@ -28,6 +28,11 @@ class MyDocument extends Document {
             }}
           />
 
+          <script
+            src="https://sdk.nextsale.io/nextsale.min.js?key=pk_68804ec40feff8c7faff80920cb9b473b6462ebd"
+            async
+          />
+
           <meta charSet="utf-8" />
           <meta
             name="viewport"
